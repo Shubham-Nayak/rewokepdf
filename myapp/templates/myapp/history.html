@@ -345,7 +345,7 @@
         <div class="list-group">
 
         {%for i in history%}
-          <button type="button" class="list-group-item list-group-item-action" ><a href="{{i.files.url}}" target="_blank">{{i.filename}}</a></button>
+          <button type="button" class="list-group-item list-group-item-action" ><a href="{{i.files.url}}" target="_blank">{{i.filename}}</a>&nbsp;<small>{{i.createdon}}</small></button>
         {%endfor%}
        </div>
 
