@@ -1,0 +1,623 @@
+{%load static %}
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic" rel="stylesheet" type="text/css">
+    <meta name="description" content="School Management System with 30+ modules progressive modules are  designed to integrate students, parents, teachers and the administration of a school or college on one single platform.">
+    <meta name="keywords" content="Campus Management Software, School Online Admissions Management System">
+    <link rel="icon" href=".fav.png">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="{%static 'myapp/jquery-3.4.1.min.js' %}" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js" type="text/javascript"></script>
+    
+    <link type="text/css" rel="stylesheet" href="{%static 'myapp/materialize.min.css' %}" media="screen,projection">
+    <link type="text/css" rel="stylesheet" href="{%static 'myapp/sweetalert.css' %}">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="{% static 'myapp/materialize.min.js' %}"></script>
+    <script src="{%static 'myapp/jquery-ui.min.js' %}" type="text/javascript"></script>
+    <script src="{%static 'myapp/sweetalert.min.js' %}" type="text/javascript"></script>
+    <script src="{%static 'myapp/jquery.validate.min.js' %}" type="text/javascript"></script>
+    <!-- <script async="" src="https://jsfiddle.net/jfriend00/n4mKw/embed/" type="text/javascript"></script><iframe src="https://jsfiddle.net/n4mKw/embedded/?username=jfriend00" id="JSFEMB_18563" width="100%" height="400" frameborder="0" sandbox="allow-modals allow-forms allow-same-origin allow-scripts allow-popups allow-top-navigation-by-user-activation allow-downloads" allow="midi; geolocation; microphone; camera; display-capture; encrypted-media;"></iframe> -->
+    <style type="text/css">
+        .divi2 {
+            padding-top: 50px;
+        }
+        .divi1 {
+            padding-top: 50px;
+        }
+
+        .formbox {
+            background-color: #fff;
+            width: 90%;
+        }
+
+        .btnmcb {
+            background: #f9a33f;
+            color: #532c96;
+            font-weight: bold;
+        }
+
+        .input-field label {
+            color: #43197c;
+        }
+
+        .carousel-indicators li {
+            border: 1px solid #532c96;
+        }
+
+        .carousel-indicators .active {
+            background-color: #532c96;
+        }
+
+
+        .carousel-control {
+            width: 30px;
+            height: 30px;
+            top: -35px;
+        }
+
+        .left.carousel-control {
+            right: 30px;
+            left: inherit;
+        }
+
+        .carousel-control .glyphicon-chevron-left,
+        .carousel-control .glyphicon-chevron-right {
+            font-size: 12px;
+            background-color: #fff;
+            line-height: 30px;
+            text-shadow: none;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        .site-navigation ul li:hover > ul {
+            box-shadow: none;
+        }
+
+        .site-navigation ul {
+            float: none;
+        }
+
+        .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+            color: #555;
+            background: #efefef;
+            border-radius: 6px 6px 0 0;
+            position: relative;
+            z-index: 1024;
+            top: 0;
+            border-top: 1px solid rgba(0,0,0,.15);
+            border-left: 1px solid rgba(0,0,0,.15);
+            border-right: 1px solid rgba(0,0,0,.15);
+        }
+
+        .primary-menu {
+            background: #fff;
+        }
+
+        .empty-spc {
+            position: relative;
+            z-index: 1024;
+            top: -30px;
+            height: 20px;
+        }
+
+
+        .banner-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            vertical-align: middle;
+            background-image: linear-gradient(80deg, rgba(255, 255, 255, .3) 0, rgba(255, 255, 255, .3) 58%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%);
+            background-image: -webkit-linear-gradient(20deg, rgba(255, 255, 255, .3) 0, rgba(255, 255, 255, .3) 58%, rgba(255, 255, 255, 0) 58%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        .learn-more {
+            background: #fff;
+            color: #005be8;
+            border: 1px solid #005be8;
+            border-radius: 50px;
+            min-width: 125px;
+            font-size: 16px;
+            font-weight: 500;
+            height: 44px;
+            line-height: 42px;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 0 14px;
+            vertical-align: middle;
+            display: inline-block;
+            border-radius: 50px;
+            text-decoration: none;
+            position: relative;
+            transition: all ease-in-out .2s;
+            z-index: 1;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+
+
+
+        /*.carousel-inner>.item>img, .carousel-inner>.item>a>img{-webkit-filter: brightness(95%);  filter: brightness(95%);}*/
+        .carousel-caption {
+            top: 50%;
+            position: absolute;
+            left: 40%;
+            padding-bottom: 30px;
+        }
+
+        .carousel-caption1 {
+            position: absolute;
+            top: 55%;
+            left: 10%;
+            width: 50%;
+            padding-bottom: 30px;
+        }
+
+            .carousel-caption1 h3 {
+                font-size: 26px;
+                line-height: 28px;
+                color: #43197c;
+                text-shadow: none;
+                font-weight: bold;
+            }
+
+            .carousel-caption1 h4 {
+                font-size: 24px;
+                line-height: 36px;
+                color: #000;
+            }
+
+        .learn-more1 {
+            background: #006ae6;
+            color: #fff;
+            border: 1px solid #006ae6;
+        }
+
+
+        .carousel-caption2 {
+            position: absolute;
+            top: 0%;
+            left: 40%;
+            width: 56%;
+            padding-bottom: 30px;
+        }
+
+
+
+
+        .learn-more2 {
+            margin-top: 32px;
+            float: right;
+            color: #2f0545;
+            position: absolute;
+            bottom: 4px;
+            right: 30px;
+        }
+
+
+        .carousel-caption3 {
+            position: absolute;
+            top: 0%;
+            left: 10%;
+            width: 46%;
+            padding-bottom: 30px;
+            text-align: left;
+        }
+
+        .carousel-caption4 {
+            position: absolute;
+            top: 0%;
+            left: 50%;
+            width: 46%;
+            padding-bottom: 30px;
+            text-align: left;
+        }
+
+        .learn-more4 {
+            background: #0638a1;
+            color: #fff;
+            border: 1px solid #0638a1;
+            text-shadow: none;
+            float: right;
+        }
+
+        .carousel-caption4 h3 {
+            font-size: 24px;
+            color: #271389;
+            text-shadow: none;
+            font-weight: bold;
+        }
+
+        .carousel-caption4 h4 {
+            font-size: 20px;
+            line-height: 32px;
+            color: #0633a0;
+            text-shadow: none;
+            font-weight: bold;
+        }
+
+        .carousel-caption5 {
+            position: absolute;
+            top: 0%;
+            left: 10%;
+            width: 46%;
+            padding-bottom: 30px;
+            text-align: left;
+        }
+
+        .learn-more5 {
+            background: #0638a1;
+            color: #fff;
+            border: 1px solid #0638a1;
+            text-shadow: none;
+            float: left;
+            margin-top: -2px;
+            margin-left: -5px;
+        }
+
+        .carousel-caption5 h3 {
+            font-size: 24px;
+            color: #271389;
+            text-shadow: none;
+            font-weight: bold;
+        }
+
+        .carousel-caption5 h4 {
+            font-size: 20px;
+            line-height: 32px;
+            color: #f9a33f;
+            text-shadow: none;
+            font-weight: bold;
+        }
+
+
+
+        .carousel-caption3 h3 {
+            font-size: 24px;
+            color: #271389;
+            font-weight: bold;
+            text-shadow: none;
+        }
+
+        .carousel-caption3 h4 {
+            font-size: 24px;
+            line-height: 36px;
+            color: #f9a33f;
+            text-shadow: none;
+            font-weight: bold;
+        }
+
+
+
+        .learn-more3 {
+            background: #271389;
+            color: #f66b20;
+            border: 1px solid #5e54d5;
+        }
+
+        .carousel-caption2 h3 {
+            font-size: 24px !important;
+            text-align: left;
+            margin-left: 80px;
+            color: #532c96;
+            text-shadow: none;
+            font-weight: bold;
+        }
+
+        .carousel-caption2 h4 {
+            text-align: left;
+            margin-left: 80px;
+            font-weight: bold;
+            color: #f66b20;
+            font-weight: bold;
+            font-size: 18px;
+            text-shadow: none;
+        }
+
+
+
+        /*.carousel-inner > .item {
+            height: 600px !important;
+        }*/
+
+        /*.carousel-inner > .item > img,
+        .carousel-inner > .item > a > img {
+            min-height: 500px;
+        }*/
+
+        #fancy-title-8 {
+            font-size: 32px;
+        }
+
+        @media (max-width:768px) {
+            #myCarousel {
+                display: none;
+            }
+
+            .carousel-caption {
+                display: none;
+            }
+
+            .carousel-caption1 {
+                display: none;
+            }
+
+            .carousel-caption2 {
+                display: none;
+            }
+
+            .carousel-caption3 {
+                display: none;
+            }
+
+            .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+                background-color: transparent;
+            }
+        }
+        .divi1{
+            display: none;
+        }
+    </style>
+
+</head>
+<script>
+    $(document).ready(function(){
+        $('#signup').click(function(){
+            $('.divi2').hide();
+            $('.divi1').show();
+            $(this).css('color','#f76b1e');
+            $('#login').css('color','#005be8');
+
+
+        });
+        $('#login').click(function(){
+            $('.divi1').hide();
+            $('.divi2').show();
+            $(this).css('color','#f76b1e');
+            $('#signup').css('color','#005be8');
+
+
+
+        });
+        
+
+    });
+</script>
+{%if user.is_authenticated %}
+ <script>
+    window.location.href('/');
+ </script>
+
+{% endif %}
+<body>
+
+<div class="container-fluid top-menu">
+<div class="row" style="padding:0px;">
+<div class="col-md-12">
+<div class="col-md-10">
+<div id="NoteText" class="note-text-dynm">
+</div>
+</div>
+<div class="col-md-2">
+<ul class="top-rightmenu">
+<li style="border-right:none;padding-right:0px;color:white;"><a href="/" target="_blank">Support</a> &nbsp; <i class="fa fa-phone" aria-hidden="true"></i><a href="tel:+916370620350">(+91) 7008112052 </a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+<nav>
+<div class="nav-wrapper z-depth-2">
+<div class="container-fluid">
+<div class="row">
+
+<div class="col-md-6 col-sm-4">
+    <p class="text-left">
+    </p>
+    </div>
+<div class="col-md-3 col-sm-4">
+
+<ul id="nav-mobile" class="right hide-on-med-and-down">
+
+<li><a href="#" style="color:#005be8; " id="signup" title="Employee Login">Signup</a></li>
+<li><a href="#"  style="color:#f76b1e;" id="login" title="Parent Login">Login</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</nav>
+
+
+
+<div class="text center row mt2" style="display: flex;  justify-content: center;margin-top:20px;">
+<div class="col-md-6 m4 col-xs-12 col-sm-12 boxform boxpad" id="divtabID">
+<div class="formbox row z-depth-3" style="background: #f1f1f1;">
+<div class="row diviall" id="MaindivId">
+ <div class="col m12">
+</div>
+</div>
+{{error}}
+<div class="successformdiv"></div>
+<div class="errormessageformdiv"></div>
+
+<div class="divi2">
+
+<form action="/login/" method="post" class="ajax-save-form">{% csrf_token %}
+     <ul class="col-xs-12">
+<h5 style="padding-left: 5px; color: #532c96; text-align:center;font-weight:bold;">Login </h5>
+<div class="input-field col s12">
+<input autofocus="autofocus" class="user_name validate" id="UserName" name="username" placeholder="  "  type="text" value="">
+<label for="email" id="lblusernaem" class="active">Username</label>
+</div>
+<div class="input-field col s12" style="padding-bottom: 20px;">
+<input class="password1 validate" id="Password" name="pass" placeholder="  "  type="password">
+<label for="password1" id="lblpswd" class="active">Password</label>
+</div>
+<div class="row">
+<div class="col m12">
+<input type="submit" class="btn btn-primary btn-large btnmcb" id="LogID" value="Login" onmouseover="if (!window.__cfRLUnblockHandlers) return false; this.style.cursor='pointer';" onmouseout="if (!window.__cfRLUnblockHandlers) return false; this.style.cursor='default';">
+</div>
+<div class="col m12">
+<p>&nbsp;</p>
+</div>
+
+</div>
+
+
+<div class="row password">
+<div class="col m12">
+<p style="font-size:14px;">
+<a id="HyperLink1" href="/Signin/Forgot_password" style="position: static; color: #532c96;">Forgot your password?</a>
+</p>
+</div>
+</div>
+
+</ul>
+</form>
+</div>
+
+<div class="divi1">
+
+<form action="/signup/" method="post">{% csrf_token %}
+     <ul class="col-xs-12">
+<h5 style="padding-left: 5px; color: #532c96; text-align:center;font-weight:bold;"> Signup </h5>
+<div class="row">
+
+<div class="input-field col-md-6 s12">
+<input autofocus="autofocus" class="user_name validate" id="UserName" name="firstname" placeholder="First Name  " required="required" type="text" value="">
+<label for="email" id="lblusernaem" class="active">First Name</label>
+</div>
+<div class="input-field col-md-6 s12">
+    <input autofocus="autofocus" class="user_name validate" id="UserName" name="lastname" placeholder="Last Name  " required="required" type="text" value="">
+    <label for="email" id="lblusernaem" class="active">Last Name</label>
+    </div>
+</div>
+    <div class="input-field col s12">
+        <input autofocus="autofocus" class="user_name validate" id="UserName" name="username" placeholder="UserName  " required="required" type="text" value="">
+        <label for="email" id="lblusernaem" class="active">UserName</label>
+        </div>
+        <div class="input-field col s12">
+            <input autofocus="autofocus" class="user_name validate" id="UserName" name="email" placeholder="First Name  " required="required" type="text" value="">
+            <label for="email" id="lblusernaem" class="active">Email</label>
+            </div>
+            <div class="row">
+<div class="input-field col-md-6 s12" style="padding-bottom: 20px;">
+<input class="password1 validate" id="Password" name="pass1" placeholder="Password  " required="required" type="password">
+<label for="password1" id="lblpswd" class="active">Password</label>
+</div>
+<div class="input-field col-md-6 s12" style="padding-bottom: 20px;">
+    <input class="password1 validate" id="pass2" name="pass2" placeholder="Confirm Password  " required="required" type="password">
+    <label for="password1" id="lblpswd" class="active">Confirm Password</label>
+    </div>
+            </div>
+<div class="row">
+<div class="col m12">
+<input type="submit" class="btn btn-primary btn-large btnmcb" id="LogID" value="Login" onmouseover="if (!window.__cfRLUnblockHandlers) return false; this.style.cursor='pointer';" onmouseout="if (!window.__cfRLUnblockHandlers) return false; this.style.cursor='default';">
+</div>
+<div class="col m12">
+<p>&nbsp;</p>
+</div>
+
+</div>
+
+
+<div class="row password">
+<div class="col m12">
+<p style="font-size:14px;">
+<a id="HyperLink1" href="/Signin/Forgot_password" style="position: static; color: #532c96;">Forgot your password?</a>
+</p>
+</div>
+</div>
+
+</ul>
+</form>
+</div>
+<div class="forgotpass"></div>
+<div id="forDiv11" hidden="hidden">
+<div class="col m12">
+<div class="col m6" style="color: #3F51B5;">Forgot Parent/Student User Name? </div>
+<div class="col m6"> <p style="text-align: right; cursor:pointer"> <a onclick="if (!window.__cfRLUnblockHandlers) return false; myFunction123()" id="forhide121"> Back </a> </p> </div>
+</div>
+<div id="forDiv" hidden="hidden">
+</div>
+</div>
+</div>
+</div>
+</div>
+    
+    
+    <div class="hiddendiv common"></div></body>
+    <script>
+
+            jQuery(document).on('submit', '.ajax-save-form', function(e){
+
+                e.preventDefault();
+                var ajax_save_form = jQuery(this);
+                var formaction = ajax_save_form.attr('action');
+                jQuery('.successformdiv').html('');
+                jQuery('.errormessageformdiv').html('');
+                $.ajax({
+                  enctype: 'multipart/form-data',
+                  url: formaction,
+                  data: new FormData(this),
+                  method:'post',
+                  dataType: 'json', 
+                  processData: false,
+                  contentType: false,
+                  cache: false,
+                  timeout: 600000,
+                  beforeSend: function() {
+                    $("#dcare__btn").hide();
+                    jQuery('.errormessageformdiv').html('<span style="color:#ff0000;">Please wait while form is submitting... <span>');
+                  },
+                  success : function(response) {
+                    jQuery('.successformdiv').html();
+                    jQuery('.errormessageformdiv').html('');
+                    jQuery('#submitscnow').val('Submit');
+                    if(response.status) {
+                      jQuery('.errormessageformdiv').html();
+                      jQuery('.successformdiv').html(response.message);
+                      $('.ajax-save-form')[0].reset();
+                      // $('.errormessageformdiv').html('<div class="alert alert-success" role="alert">Form Submited Sucessfully..</div>');
+                    
+                   
+            
+            
+            
+                   
+            
+                   
+            
+                    
+            
+                      if(response.http_redirect) {
+                        window.location.href = response.http_redirect;
+                      }
+                    } else {
+                      jQuery('.errormessageformdiv').html(response.message);
+                      jQuery('.successformdiv').html();
+                      var alert = $('div.alert[auto-close]');
+                      alert.each(function() {
+                        var that = $(this);
+                        var time_period = that.attr('auto-close');
+                        window.setTimeout(function() {
+                          that.fadeTo(500, 0).slideUp(500, function(){
+                            that.remove(); 
+                          });
+                        }, time_period);
+                      });
+                    }
+                  }
+                });
+              });
+    </script>
+    </html>
